@@ -22,3 +22,15 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+.comments-wrap{
+  text-align: left;
+}
+.comment-list{
+
+}
+.comment-item{
+  padding: 5px;
+  border: 3px solid red;
+}
