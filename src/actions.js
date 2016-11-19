@@ -1,5 +1,3 @@
-import _ from 'lodash';
-import moment from 'moment';
 import model from './model';
 import backend from './services/backend';
 
@@ -53,7 +51,7 @@ async function createComment(tree, {path, text}) {
 
 
 function setReplyPosition(tree, replyPosition) {
-  if (tree.get('replyPosition') == replyPosition) {
+  if (tree.get('replyPosition') === replyPosition) {
     return tree.set('replyPosition', null);
   }
   tree.set('replyPosition', replyPosition);

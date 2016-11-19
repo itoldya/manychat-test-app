@@ -1,14 +1,9 @@
 import Promise from 'bluebird';
-import model from './../model';
-import Users from './../constants/Users';
 
 
 const comment = {
   read() {
-    return Promise.delay(500).then(() => [
-      // model.comment.create({text: 'foo', author: Users.ivan, isCreating: false}),
-      // model.comment.create({text: 'abr', author: Users.ivan, isCreating: false}),
-    ]);
+    return Promise.delay(500).then(() => []);
   },
 
   create({path, data}) {
