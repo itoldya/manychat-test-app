@@ -7,3 +7,10 @@
     float: right;
     text-transform: uppercase;
 }
+.comment-form__counter{
+    float: left;
+}
+
+.comment-form__counter.negative{
+    color: red;
+}

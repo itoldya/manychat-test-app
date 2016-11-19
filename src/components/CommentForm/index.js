@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
+import cn from 'classnames';
 import utils from './../../utils';
 import './style.css';
 
 class CommentForm extends Component {
   static propTypes = {
     onCreate: PropTypes.func.isRequired,
+    maxLength: PropTypes.number.isRequired,
+  };
+
+  static defaultProps = {
+    maxLength: 420,
   };
 
   state = {
@@ -28,7 +34,7 @@ class CommentForm extends Component {
     const {onCreate} = this.props;
     const {value} = this.state;
 
-    if (utils.isBlank(value)) {
+    if (!this.isValid()) {
       return;
     }
 
@@ -36,9 +42,28 @@ class CommentForm extends Component {
     onCreate(value);
   }
 
-  render() {
+  isValid() {
     const {value} = this.state;
-    const isBlank = utils.isBlank(value);
+    const {maxLength} = this.props;
+
+    if (utils.isBlank(value)) {
+      return false;
+    }
+
+    if (value.length > maxLength) {
+      return false;
+    }
+
+    return true;
+  }
+
+  render() {
+    const {maxLength} = this.props;
+    const {value} = this.state;
+    const isValid = this.isValid();
+
+    const charsLeft = maxLength - value.length;
+    const negative = charsLeft < 0;
 
     return (
       <form className="comment-form" onSubmit={this.create.bind(this)}>
@@ -49,7 +74,10 @@ class CommentForm extends Component {
           onKeyPress={this.keyPress.bind(this)}
           value={value}
           autoFocus/>
-        <button className="comment-form__submit" type="submit" disabled={isBlank}>send</button>
+        <span className={cn("comment-form__counter", {negative})}>
+          {charsLeft}
+        </span>
+        <button className="comment-form__submit" type="submit" disabled={!isValid}>send</button>
       </form>
     );
   }
