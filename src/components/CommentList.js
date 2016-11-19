@@ -1,56 +1,44 @@
 import React, { Component, PropTypes } from 'react';
 import CommentForm from './CommentForm';
-import CommentItem from './CommentItem/index';
+import CommentItem from './CommentItem';
 
 
 class CommentList extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    showForm: PropTypes.bool.isRequired,
-    onCreate: PropTypes.func.isRequired,
-    maxDeep: PropTypes.number.isRequired,
+    maxDepth: PropTypes.number.isRequired,
     level: PropTypes.number.isRequired,
     path: PropTypes.array.isRequired,
+
+    canCreate: PropTypes.bool.isRequired,
+    onCreate: PropTypes.func.isRequired,
   };
 
   static defaultProps = {
     items: [],
-    showForm: false,
-    maxDeep: 3,
+    canCreate: false,
+    maxDepth: 3,
     level: 1,
     path: [],
   };
 
-  state = {
-    value: '',
-  };
-
-  setValue(event) {
-    const {value} = event.target;
-    this.setState({value});
-  }
-
-  create() {
-    const {onCreate} = this.props;
-    const {value} = this.state;
-    onCreate(value);
-  }
-
   render() {
-    const {items, showForm} = this.props;
-    const {onCreate} = this.props;
-    const {maxDeep, level} = this.props;
+    const {items} = this.props;
+    const {canCreate, onCreate} = this.props;
+    const {maxDepth, level, path} = this.props;
 
-    const children = items.map((item, index) => {
-      return (
-        <CommentItem path={[...this.props.path, 'comments', index]} level={level} maxDeep={maxDeep} />
-      )
-    });
+    const children = items.map((item, index) => (
+      <CommentItem
+        key={item.id}
+        path={[...path, 'comments', index]}
+        level={level}
+        maxDepth={maxDepth} />
+    ));
 
     return (
       <div className="comment-list">
         {children}
-        {showForm && <CommentForm onCreate={onCreate} />}
+        {canCreate && <CommentForm onCreate={onCreate} />}
       </div>
     );
   }

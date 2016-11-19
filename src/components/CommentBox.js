@@ -7,18 +7,23 @@ import actions from './../actions';
 class CommentBox extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
+    maxDepth: PropTypes.number.isRequired,
   };
 
   createComment(text) {
-    this.props.dispatch(
-      actions.createComment,
-      {text, path: []}
-    );
+    const path = [];
+    this.props.dispatch(actions.createComment, {text, path});
   }
 
   render() {
+    const {items, maxDepth} = this.props;
+
     return (
-      <CommentList {...this.props} onCreate={this.createComment.bind(this)} showForm/>
+      <CommentList
+        items={items}
+        maxDepth={maxDepth}
+        onCreate={this.createComment.bind(this)}
+        canCreate/>
     );
   }
 }
