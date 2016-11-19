@@ -54,9 +54,20 @@ function reply(tree, {item}) {
   tree.set('replyPosition', item.id);
 }
 
+function setMaxDepth(tree, value) {
+  tree.set('maxDepth', value);
+}
+
+function setCurrentUser(tree, currentUser) {
+  tree.set('currentUser', currentUser);
+}
+
 export default {
   loadComments,
   removeComment,
   createComment,
+
   reply,
+  setMaxDepth,
+  setCurrentUser,
 }

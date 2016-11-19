@@ -8,8 +8,7 @@ class CommentBox extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
     isReady: PropTypes.bool.isRequired,
-
-    maxDepth: PropTypes.number,
+    maxDepth: PropTypes.number.isRequired,
   };
 
   componentDidMount() {
@@ -40,5 +39,6 @@ class CommentBox extends Component {
 
 export default branch({
   items: ['comments'],
-  isReady: ['isReady']
+  isReady: ['isReady'],
+  maxDepth: ['maxDepth'],
 }, CommentBox);

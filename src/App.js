@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import SettingsBox from './components/SettingsBox';
 import CommentBox from './components/CommentBox';
 
 
@@ -14,6 +15,7 @@ class App extends Component {
           <h2>Welcome to React!!</h2>
         </div>
         <div className="comments-wrap">
+          <SettingsBox />
           <CommentBox />
         </div>
       </div>

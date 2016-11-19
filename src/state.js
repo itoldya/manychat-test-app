@@ -7,6 +7,7 @@ const tree = new Baobab({
   isReady: false,
   currentUser: Users.igor,
   replyPosition: null,
+  maxDepth: 3,
 });
 
 export default tree;
