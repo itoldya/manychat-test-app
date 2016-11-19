@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import CommentForm from './CommentForm';
-import CommentItem from './CommentItem';
+import CommentItem from './CommentItem/index';
 
 
 class CommentList extends Component {
@@ -10,9 +10,7 @@ class CommentList extends Component {
     onCreate: PropTypes.func.isRequired,
     maxDeep: PropTypes.number.isRequired,
     level: PropTypes.number.isRequired,
-
-    currentUserId: PropTypes.string.isRequired,
-    createCommentAfterId: PropTypes.string.isRequired,
+    path: PropTypes.array.isRequired,
   };
 
   static defaultProps = {
@@ -20,6 +18,7 @@ class CommentList extends Component {
     showForm: false,
     maxDeep: 3,
     level: 1,
+    path: [],
   };
 
   state = {
@@ -41,11 +40,10 @@ class CommentList extends Component {
     const {items, showForm} = this.props;
     const {onCreate} = this.props;
     const {maxDeep, level} = this.props;
-    const {currentUserId, createCommentAfterId} = this.props;
 
-    const children = items.map((item) => {
+    const children = items.map((item, index) => {
       return (
-        <CommentItem item={item} level={level} maxDeep={maxDeep} currentUserId={currentUserId} createCommentAfterId={createCommentAfterId} />
+        <CommentItem path={[...this.props.path, 'comments', index]} level={level} maxDeep={maxDeep} />
       )
     });
 

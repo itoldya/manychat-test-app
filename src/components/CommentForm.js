@@ -26,7 +26,7 @@ class CommentForm extends Component {
 
     return (
       <div className="form">
-        <textarea onClange={this.setValue.bind(this)}>{value}</textarea>
+        <textarea onChange={this.setValue.bind(this)}>{value}</textarea>
         <button onClick={this.create.bind(this)}>send</button>
       </div>
     );
