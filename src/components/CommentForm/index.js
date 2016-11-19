@@ -50,7 +50,8 @@ class CommentForm extends Component {
           placeholder="Join the discussion..."
           onChange={this.setValue.bind(this)}
           onKeyPress={this.keyPress.bind(this)}
-          value={value}/>
+          value={value}
+          autoFocus/>
         <button className="comment-form__submit" type="submit" disabled={isBlank}>send</button>
       </form>
     );
