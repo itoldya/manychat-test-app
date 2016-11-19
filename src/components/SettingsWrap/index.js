@@ -6,7 +6,7 @@ import actions from '../../actions';
 import Settings from './../Settings/index';
 
 
-class SettingsBox extends Component {
+class SettingsWrap extends Component {
   static propTypes = {
     maxDepth: PropTypes.number.isRequired,
     currentUser: PropTypes.number.isRequired,
@@ -36,5 +36,5 @@ class SettingsBox extends Component {
 export default branch({
   maxDepth: ['maxDepth'],
   currentUser: ['currentUser'],
-}, SettingsBox);
+}, SettingsWrap);
 

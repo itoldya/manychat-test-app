@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
-import SettingsBox from './components/SettingsBox/index';
-import CommentBox from './components/CommentBox/index';
+import Settings from './components/SettingsWrap/index';
+import CommentsComponent from './components/CommentsComponentWrap/index';
 
 
 class App extends Component {
   render() {
     return (
       <div className="container">
-        <SettingsBox />
-        <CommentBox />
+        <Settings />
+        <CommentsComponent />
       </div>
     );
   }

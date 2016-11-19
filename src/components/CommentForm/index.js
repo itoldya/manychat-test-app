@@ -5,7 +5,6 @@ import './style.css';
 class CommentForm extends Component {
   static propTypes = {
     onCreate: PropTypes.func.isRequired,
-    showHeader: PropTypes.bool.isRequired,
   };
 
   state = {
@@ -38,13 +37,11 @@ class CommentForm extends Component {
   }
 
   render() {
-    const {showHeader} = this.props;
     const {value} = this.state;
     const isBlank = utils.isBlank(value);
 
     return (
       <form className="comment-form" onSubmit={this.create.bind(this)}>
-        {showHeader && <h2 className="comment-form__header">Leave Comment:</h2>}
         <textarea
           className="comment-form__textarea"
           placeholder="Join the discussion..."

@@ -6,8 +6,8 @@ import Users from './../constants/Users';
 const comment = {
   read() {
     return Promise.delay(500).then(() => [
-      model.comment.create({text: 'foo', author: Users.ivan, isCreating: false}),
-      model.comment.create({text: 'abr', author: Users.ivan, isCreating: false}),
+      // model.comment.create({text: 'foo', author: Users.ivan, isCreating: false}),
+      // model.comment.create({text: 'abr', author: Users.ivan, isCreating: false}),
     ]);
   },
 

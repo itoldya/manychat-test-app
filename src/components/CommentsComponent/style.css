@@ -1,0 +1,11 @@
+.comments-component{}
+.comments-component__header{
+    margin-bottom: 5px;
+}
+
+.comments-component__preloader{
+    position: relative;
+    padding: 50px;
+}
+
+.comments-component__empty{}
