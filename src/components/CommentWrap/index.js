@@ -4,7 +4,7 @@ import Comment from './../Comment/index';
 import actions from '../../actions';
 
 
-class CommentItem extends Component {
+class CommentWrap extends Component {
   static propTypes = {
     item: PropTypes.object.isRequired,
     currentUser: PropTypes.object.isRequired,
@@ -72,4 +72,4 @@ export default branch((props, context) => {
     currentUser: ['currentUser'],
     replyPosition: ['replyPosition'],
   };
-}, CommentItem);
+}, CommentWrap);

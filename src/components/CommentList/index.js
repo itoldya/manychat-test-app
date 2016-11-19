@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import CommentForm from './../CommentForm/index';
-import CommentItem from './../CommentItem/index';
+import CommentWrap from '../CommentWrap/index';
 import './style.css';
 
 
@@ -29,7 +29,7 @@ class CommentList extends Component {
     const {maxDepth, level, path} = this.props;
 
     const children = items.map((item, index) => (
-      <CommentItem
+      <CommentWrap
         key={item.id}
         path={[...path, 'comments', index]}
         level={level}
