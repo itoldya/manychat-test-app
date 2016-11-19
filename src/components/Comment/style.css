@@ -54,6 +54,11 @@
     color: #2a2e2e;
     word-wrap: break-word;
 }
+.comment__text a{
+    color: #2e9fff;
+    cursor: pointer;
+    border-bottom: 1px dashed;
+}
 
 .comment__footer{}
 .comment__footer-link{

@@ -1,10 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import cn from 'classnames';
 import moment from 'moment';
-import nl2br from 'react-nl2br';
 import Time from './../Time/index';
 import CommentList from './../CommentList/index';
+import Truncate from './../Truncate/index';
 import './style.css';
+
 
 class Comment extends Component {
   static propTypes = {
@@ -55,7 +56,9 @@ class Comment extends Component {
               <Time date={item.created} />
             </span>
           </header>
-          <div className="comment__text">{nl2br(item.text)}</div>
+          <div className="comment__text">
+            <Truncate text={item.text}/>
+          </div>
           <footer className="comment__footer">
             {canReplay && <a className="comment__footer-link" onClick={onReply}>Reply</a>}
             {(canRemove && canReplay) && <span className="comment__bullet">•</span>}
