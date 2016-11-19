@@ -1,9 +1,0 @@
-.comment-form{}
-.comment-form__textarea{
-    width: 100%;
-    box-sizing: border-box;
-}
-.comment-form__submit{
-    float: right;
-    text-transform: uppercase;
-}
