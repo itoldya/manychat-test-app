@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 function guid() {
   function s4() {
     return Math.floor((1 + Math.random()) * 0x10000)
@@ -9,6 +11,13 @@ function guid() {
 }
 
 
+function getRandom(obj) {
+  const keys = _.keys(obj);
+  const index = _.random(keys.length - 1);
+  return obj[keys[index]];
+}
+
 export default {
   guid,
+  getRandom,
 }
