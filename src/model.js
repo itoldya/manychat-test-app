@@ -21,8 +21,9 @@ const comment = {
       author: user.create(),
       text: '...',
       comments: [],
-      _isRemoving: false,
-      _isCreating: false,
+
+      isRemoving: false,
+      isCreating: true,
     };
 
     return _.assign({}, defaults, initial);

@@ -22,7 +22,7 @@ class CommentItem extends Component {
 
   reply() {
     const {item} = this.props;
-    this.props.dispatch(actions.reply, {item});
+    this.props.dispatch(actions.setReplyPosition, item.id);
   }
 
   createComment(text) {
@@ -47,8 +47,8 @@ class CommentItem extends Component {
         path={path}
         maxDepth={maxDepth}
 
-        isCreating={item._isCreating}
-        isRemoving={item._isRemoving}
+        isCreating={item.isCreating}
+        isRemoving={item.isRemoving}
 
         canReplay={canReplay}
         canRemove={canRemove}
