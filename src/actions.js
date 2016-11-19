@@ -53,6 +53,9 @@ async function createComment(tree, {path, text}) {
 
 
 function setReplyPosition(tree, replyPosition) {
+  if (tree.get('replyPosition') == replyPosition) {
+    return tree.set('replyPosition', null);
+  }
   tree.set('replyPosition', replyPosition);
 }
 
