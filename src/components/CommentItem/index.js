@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import {branch} from 'baobab-react/higher-order';
-import Comment from './Comment';
-import actions from './../actions';
+import Comment from './../Comment/index';
+import actions from '../../actions';
 
 
 class CommentItem extends Component {
@@ -13,6 +13,7 @@ class CommentItem extends Component {
     maxDepth: PropTypes.number.isRequired,
     level: PropTypes.number.isRequired,
     path: PropTypes.array.isRequired,
+    isLastChild: PropTypes.bool.isRequired,
   };
 
   remove() {
@@ -34,6 +35,7 @@ class CommentItem extends Component {
     const {item} = this.props;
     const {maxDepth, level, path} = this.props;
     const {currentUser, replyPosition} = this.props;
+    const {isLastChild} = this.props;
 
     const canReplay = level < maxDepth;
     const canRemove = currentUser.id === item.author.id;
@@ -42,6 +44,7 @@ class CommentItem extends Component {
     return (
       <Comment
         item={item}
+        isLastChild={isLastChild}
 
         level={level}
         path={path}

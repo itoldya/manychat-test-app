@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
 import {branch} from 'baobab-react/higher-order';
-import actions from './../actions';
+import actions from '../../actions';
 
-import Settings from './Settings';
+import Settings from './../Settings/index';
 
 
 class SettingsBox extends Component {

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import CommentForm from './CommentForm';
-import CommentItem from './CommentItem';
+import CommentForm from './../CommentForm/index';
+import CommentItem from './../CommentItem/index';
+import './style.css';
 
 
 class CommentList extends Component {
@@ -32,12 +33,16 @@ class CommentList extends Component {
         key={item.id}
         path={[...path, 'comments', index]}
         level={level}
-        maxDepth={maxDepth} />
+        maxDepth={maxDepth}
+        isLastChild={index === (items.length -1)}/>
     ));
 
     return (
       <div className="comment-list">
-        {children}
+        <div className="comment-list__children">
+          {children}
+        </div>
+
         {canCreate && <CommentForm onCreate={onCreate} />}
       </div>
     );

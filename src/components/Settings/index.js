@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import _ from 'lodash';
-import Users from './../constants/Users';
+import './style.css';
+import Users from '../../constants/Users';
 
 
 class Settings extends Component {
@@ -33,13 +34,18 @@ class Settings extends Component {
     ));
 
     return (
-      <div>
-        <select onChange={this.setCurrentUser.bind(this)} value={currentUser.id}>
-          {options}
-        </select>
+      <div className="settings">
+        <div className="settings__param">
+          <label className="settings__param-label" htmlFor="settings-currentUser">currentUser:</label>
+          <select id="settings-currentUser" onChange={this.setCurrentUser.bind(this)} value={currentUser.id}>
+            {options}
+          </select>
+        </div>
 
-        maxDepth:
-        <input type="number" value={maxDepth} onChange={this.setMaxDepth.bind(this)}/>
+        <div className="settings__param">
+          <label className="settings__param-label" htmlFor="settings-maxDepth">maxDepth:</label>
+          <input id="settings-maxDepth" type="number" value={maxDepth} onChange={this.setMaxDepth.bind(this)}/>
+        </div>
       </div>
     );
   }

@@ -17,7 +17,13 @@ function getRandom(obj) {
   return obj[keys[index]];
 }
 
+
+function isBlank(str) {
+  return (!str || /^\s*$/.test(str));
+}
+
 export default {
   guid,
   getRandom,
+  isBlank,
 }

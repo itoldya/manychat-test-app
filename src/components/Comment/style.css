@@ -1,0 +1,66 @@
+.comment{
+    padding: 5px;
+    position: relative;
+}
+
+.comment.loading{
+    opacity: 0.3;
+}
+
+.comment__vertical-line{
+    border-left: 1px solid #656c7a;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    left: 24px;
+}
+
+.comment__avatar{
+    margin-right: 12px;
+    float: left;
+}
+
+.comment__avatar-img{
+    border-radius: 50%;
+    width: 36px;
+    border: 1px #656c7a solid;
+    position: relative;
+}
+
+.comment__body{
+    overflow: hidden;
+}
+.comment__header{
+    margin-bottom: 3px;
+}
+.comment__author{
+    font-weight: bold;
+    font-size: 13px;
+}
+.comment__bullet{
+    padding: 0 5px;
+    color: #656c7a;
+    font-size: 13px;
+}
+
+.comment__created{
+    color: #656c7a;
+    font-size: 12px;
+}
+
+.comment__text{
+    line-height: 21px;
+    font-size: 15px;
+    color: #2a2e2e;
+    word-wrap: break-word;
+}
+
+.comment__footer{}
+.comment__footer-link{
+    color: #2e9fff;
+    cursor: pointer;
+    font-size: 13px;
+}
+.comment__children{
+    margin-top: 10px;
+}
