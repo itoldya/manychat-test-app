@@ -28,12 +28,22 @@ class Comment extends Component {
     isRemoving: PropTypes.bool.isRequired,
   };
 
+  reply(event) {
+    event.preventDefault();
+    this.props.onReply();
+  }
+
+  remove(event) {
+    event.preventDefault();
+    this.props.onRemove();
+  }
+
   render() {
     const {item} = this.props;
     const {canReplay, canRemove, canCreate} = this.props;
     const {isCreating, isRemoving} = this.props;
     const {maxDepth, level, path} = this.props;
-    const {onCreate, onReply, onRemove} = this.props;
+    const {onCreate} = this.props;
     const {isLastChild} = this.props;
 
     const nextLevel = level + 1;
@@ -44,6 +54,7 @@ class Comment extends Component {
 
     return (
       <div className={className}>
+        <a name={item.id} />
         {!isLastChild && <div className="comment__vertical-line"></div>}
         <div className="comment__avatar">
           <img className="comment__avatar-img" src={item.author.pic} alt={item.author.name}/>
@@ -52,17 +63,17 @@ class Comment extends Component {
           <header className="comment__header">
             <span className="comment__author">{item.author.name}</span>
             <span className="comment__bullet">•</span>
-            <span className="comment__created" title={moment(item.created).format('LLLL')}>
+            <a href={`#${item.id}`} className="comment__created" title={moment(item.created).format('LLLL')}>
               <Time date={item.created} />
-            </span>
+            </a>
           </header>
           <div className="comment__text">
             <Truncate text={item.text}/>
           </div>
           <footer className="comment__footer">
-            {canReplay && <a className="comment__footer-link" onClick={onReply}>Reply</a>}
+            {canReplay && <a href="#" className="comment__footer-link" onClick={this.reply.bind(this)}>Reply</a>}
             {(canRemove && canReplay) && <span className="comment__bullet">•</span>}
-            {canRemove && <a className="comment__footer-link" onClick={onRemove}>Remove</a>}
+            {canRemove && <a href="#" className="comment__footer-link" onClick={this.remove.bind(this)}>Remove</a>}
           </footer>
 
           <div className="comment__children">
