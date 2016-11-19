@@ -12,7 +12,7 @@ class CommentList extends Component {
     path: PropTypes.array.isRequired,
 
     canCreate: PropTypes.bool.isRequired,
-    onCreate: PropTypes.func.isRequired,
+    onCreate: PropTypes.func,
   };
 
   static defaultProps = {

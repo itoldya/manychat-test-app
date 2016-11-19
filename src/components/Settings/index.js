@@ -9,7 +9,7 @@ class Settings extends Component {
     maxDepth: PropTypes.number.isRequired,
     onChangeMaxDepth: PropTypes.func.isRequired,
 
-    currentUser: PropTypes.number.isRequired,
+    currentUser: PropTypes.object.isRequired,
     onChangeCurrentUser: PropTypes.func.isRequired,
   };
 

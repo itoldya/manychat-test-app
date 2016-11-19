@@ -9,7 +9,7 @@ import Settings from './../Settings/index';
 class SettingsWrap extends Component {
   static propTypes = {
     maxDepth: PropTypes.number.isRequired,
-    currentUser: PropTypes.number.isRequired,
+    currentUser: PropTypes.object.isRequired,
   };
 
   setMaxDepth(value) {
