@@ -7,8 +7,14 @@ import actions from './../actions';
 class CommentBox extends Component {
   static propTypes = {
     items: PropTypes.array.isRequired,
-    maxDepth: PropTypes.number.isRequired,
+    isReady: PropTypes.bool.isRequired,
+
+    maxDepth: PropTypes.number,
   };
+
+  componentDidMount() {
+    this.props.dispatch(actions.loadComments);
+  }
 
   createComment(text) {
     const path = [];
@@ -16,7 +22,11 @@ class CommentBox extends Component {
   }
 
   render() {
-    const {items, maxDepth} = this.props;
+    const {items, maxDepth, isReady} = this.props;
+
+    if (!isReady) {
+      return <div>loading...</div>
+    }
 
     return (
       <CommentList
@@ -29,5 +39,6 @@ class CommentBox extends Component {
 }
 
 export default branch({
-  items: ['comments']
+  items: ['comments'],
+  isReady: ['isReady']
 }, CommentBox);
