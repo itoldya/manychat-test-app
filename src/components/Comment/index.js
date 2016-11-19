@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import cn from 'classnames';
 import moment from 'moment';
 import nl2br from 'react-nl2br';
+import Time from './../Time/index';
 import CommentList from './../CommentList/index';
 import './style.css';
 
@@ -51,8 +52,8 @@ class Comment extends Component {
             <span className="comment__author">{item.author.name}</span>
             <span className="comment__bullet">•</span>
             <span className="comment__created" title={moment(item.created).format('LLLL')}>
-              {moment(item.created).fromNow()}
-              </span>
+              <Time date={item.created} />
+            </span>
           </header>
           <div className="comment__text">{nl2br(item.text)}</div>
           <footer className="comment__footer">
